@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import time
 import sys
 
+
 def get_wikipedia_info(query, language='en'):
     query = query.lower()
 
@@ -36,7 +37,7 @@ def get_wikipedia_info(query, language='en'):
     return page_text.strip()
 
 
-def slow_print(text, delay=0.05):
+def slow_print(text, delay=0.03):
     # Цикл по каждому символу текста
     for char in text:
         # Печатаем букву
@@ -46,5 +47,12 @@ def slow_print(text, delay=0.05):
         time.sleep(delay)
     print() 
 
-article = get_wikipedia_info('Компьютер', language='ru')
-slow_print(article)
+def main():
+    slow_print('Введите запрос: ')
+    query = input()
+    response = get_wikipedia_info(query, language='ru')
+    slow_print(response)
+
+
+if __name__ ==  "__main__":
+    main()
